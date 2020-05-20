@@ -11,7 +11,7 @@
     <div>
     <label>Arbeidsoppgave
         <div><input name="task" placeholder="Add a task" />
-        </label>
+            </label>
     </div>
     <div>
 <input type="submit"/>
@@ -60,7 +60,8 @@
 
 
 <h4>Tildeling:</h4>
-<div id ="assignmentList"></div>
+<!---ondrop, ondragover:events som gjør det mulig å dragge noe inn i diven-->
+<div id ="assignmentList" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
 </body>
        

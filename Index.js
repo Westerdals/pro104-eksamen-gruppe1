@@ -1,4 +1,22 @@
-function renderWorkTaskList() { 
+var counter = 0;
+function allowDrop(e){
+    e.preventDefault();
+}
+function drag(e){
+    e.dataTransfer.setData("text", e.target.id);
+}
+
+function drop(e){
+    e.preventDefault();
+    const data = e.dataTransfer.getData("text");
+    e.target.appendChild(document.getElementById(data));
+    const newAssignment = {data};
+    const assignmentList = JSON.parse(window.localStorage.getItem("assignmentList")) || [];
+    assignmentList.push(newAssignment);
+    window.localStorage.setItem("assignmentList", JSON.stringify(assignmentList));
+    
+}
+function renderWorkTaskList() {
 
 const workTaskList = JSON.parse(window.localStorage.getItem("workTaskList")) || [];   
     const workTaskListEl = document.getElementById("workTaskList");
@@ -6,14 +24,15 @@ const workTaskList = JSON.parse(window.localStorage.getItem("workTaskList")) || 
     for (const workTask of workTaskList) {
     const workTaskEl = document.createElement("div");
     const {task} = workTask;
-    workTaskEl.innerHTML = "<div>" + task + "</div>";
+    /* draggable, ondragstart og id for å gjøre det mulig å dragge elementet */
+    workTaskEl.innerHTML = "<div id='dragTask"+counter+"' draggable='true' ondragstart='drag(event)'>" + task + "</div>";
     workTaskListEl.appendChild(workTaskEl);
     }
 }
 
 function createNewTask(event) {
     event.preventDefault();
-
+    counter++;
     const task = document.querySelector("[name='task']").value;
    
     const workTask = {task};
@@ -28,7 +47,7 @@ function createNewTask(event) {
     renderWorkTaskList();
 
     getSelectOptions();
-    
+    console.log(counter);
     }
         
         function renderTeamMemberList(){
@@ -38,7 +57,7 @@ function createNewTask(event) {
     for (const workTeamMember of teamMemberList) {
         const workTeamMemberEl = document.createElement("div");
         const { teamMember } = workTeamMember;
-    workTeamMemberEl.innerHTML = "<div>"+ teamMember +"</div>";
+    workTeamMemberEl.innerHTML = "<div id='dragMember"+counter+"' draggable='true' ondragstart='drag(event)'>"+ teamMember +"</div>";
     teamMemberListEl.appendChild(workTeamMemberEl);
     }
 }
