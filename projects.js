@@ -18,8 +18,7 @@ function renderProjectList() {
     projectListEl.innerHTML = "";
     for(const project of projectList){
         const projectEl = document.createElement("div");
-        const {projectName} = project;
-        projectEl.innerHTML = "<h3>" + project + "</h3>";
+        projectEl.innerHTML = project.projectName;
         projectListEl.appendChild(projectEl);
     }
 }
