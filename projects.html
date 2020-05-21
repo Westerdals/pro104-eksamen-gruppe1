@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Add new project!</title>
+        <meta charset="UTF-8">
+        <script defer type="text/javascript" src="projects.js"></script>
+    </head>
+    <body onload="renderProjectList()">
+        <h1>Add a new project here!</h1>
+        <form onsubmit="createNewProject(event)">
+            <div>
+                <label>Project Name:
+                    <div><input name="projectName" placeholder="Name the project.."/></div>
+                </label>
+            </div>
+            <div>
+                <input type="submit"/>
+            </div>
+        </form>
+        <h2>Ongoing Projects</h2>
+        <div id="projectList"></div>
+    </body>
+</html>
