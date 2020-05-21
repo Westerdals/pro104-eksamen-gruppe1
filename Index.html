@@ -1,9 +1,10 @@
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="Index.css">
+<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
-<script type="text/javascript" src="Index.js"></script>
+<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="dragndrop.js"></script>
 
 <h2>Her kan du opprette en arbeidsoppgave</h2>
 <form onsubmit="createNewTask(event)">
@@ -11,7 +12,7 @@
     <div>
     <label>Arbeidsoppgave
         <div><input name="task" placeholder="Add a task" />
-            </label>
+        </label>
     </div>
     <div>
 <input type="submit"/>
@@ -22,8 +23,9 @@
 <h4>Arbeidsoppgaver:</h4>
 
 <div id ="workTaskList"></div>
-    
-    <h2>Her kan du opprette et teammedlem</h2>
+
+
+<h2>Her kan du opprette et teammedlem</h2>
 <form onsubmit="createNewTeamMember(event)">
 <div>
         <label>Teammedlemmer
@@ -34,35 +36,26 @@
 <input type="submit"/>
     </div>
 </form>
-    
-    <h4>Teammedlem:</h4>
+
+
+<h4>Teammedlem:</h4>
 <div id ="teamMemberList"></div>
 
+    <p>teammedlemmer</p>
+    <div id="teamMemberList"></div>
+    <h2>Klikk for å tildele en arbeidsoppgave til et teammedlem</h2>
 
-<h2>Klikk for å tildele en arbeidsoppgave til et teammedlem</h2>
-
-    <form onsubmit="getAssignmentTask(event)">
-    <label for="assignmentTask"></label>
-    <select id="valueTask">
-    <option value="">Velg en arbeidsoppgave</option>
-    </select>
-    <input type="submit">
-</form>
-
-<br>
-
-<label for="assigmentTeamMember"></label>
-<select id="valueTeamMember">
-<option>Velg et teammedlem</option>
-</select>
-<input type="submit">
-
-
-
-<h4>Tildeling:</h4>
-<!---ondrop, ondragover:events som gjør det mulig å dragge noe inn i diven-->
-<div id ="assignmentList" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
-</body>
-       
-       </main>
+    <form onsubmit="submitAssignmentTask(event)">
+        <label for="assignmentTask"></label>
+        <select id="valueTask">
+            <option value="">Velg en arbeidsoppgave</option>
+        </select>
+        <label for="assigmentTeamMember"></label>
+        <select id="valueTeamMember">
+            <option value="">Velg et teammedlem</option>
+        </select>
+        <input type="submit">
+    </form>
+    <p>tildeling</p>
+    <!--ondrop og ondragover: gjør det mulig å dragge noe inn i diven-->
+    <div id="assignmentList" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
