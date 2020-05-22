@@ -23,42 +23,43 @@
                 <h3>Kategori3</h3>
                 <div class="members">Members</div>
             </div>
-        </div>
-        <div class="sideBar">
-            <div class="sideBarElement">
-                <p>Her kan du opprette en arbeidsoppgave</p>
-                <form onsubmit="createNewTask(event)">
-                
-                <label>Arbeidsoppgave
-                    <input name="task" placeholder="Add a task" />
-                </label>
+            <div class="sideBar">
+                <div class="sideBarElement">
+                    <p>Her kan du opprette en arbeidsoppgave</p>
+                    <form onsubmit="createNewTask(event)">
                     
-                <input type="submit"/>
+                    <label>Arbeidsoppgave
+                        <input name="task" placeholder="Add a task" />
+                    </label>
+                        
+                    <input type="submit"/>
+                        
+                        
+                    </form>
+    
+                    <h4>Arbeidsoppgaver:</h4>
+    
+                    <div id ="workTaskList"></div>
+                </div>
+                <div class="sideBarElement">
+                    <p>Her kan du opprette et teammedlem</p>
+                    <form onsubmit="createNewTeamMember(event)">
                     
-                    
-                </form>
-
-                <h4>Arbeidsoppgaver:</h4>
-
-                <div id ="workTaskList"></div>
+                    <label>Teammedlemmer
+                        <input name="teamMember" placeholder="Add a name" />
+                    </label>
+                        
+                    <input type="submit"/>
+                        
+                    </form>
+    
+    
+                    <h4>Teammedlem:</h4>
+                    <div id ="teamMemberList"></div>
+                </div>
             </div>
-            <div class="sideBarElement">
-                <p>Her kan du opprette et teammedlem</p>
-                <form onsubmit="createNewTeamMember(event)">
-                
-                <label>Teammedlemmer
-                    <input name="teamMember" placeholder="Add a name" />
-                </label>
-                    
-                <input type="submit"/>
-                    
-                </form>
-
-
-                <h4>Teammedlem:</h4>
-                <div id ="teamMemberList"></div>
-            </div>
         </div>
+        
         <!--<div id="teamMemberList"></div>
         <h2>Klikk for å tildele en arbeidsoppgave til et teammedlem</h2>
 
