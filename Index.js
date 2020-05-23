@@ -1,14 +1,19 @@
+const gridContainer = document.getElementsByClassName("gridContainer");
+
 function renderWorkTaskList() { 
 
     const workTaskList = JSON.parse(window.localStorage.getItem("workTaskList")) || [];   
-        const workTaskListEl = document.getElementById("workTaskList");
-          workTaskListEl.innerHTML = "";  
-        for (const workTask of workTaskList) {
+    const workTaskListEl = document.getElementById("workTaskList");
+    workTaskListEl.innerHTML = "";  
+    for (const workTask of workTaskList) {
         const workTaskEl = document.createElement("div");
         const {task} = workTask;
-        workTaskEl.innerHTML = "<div id='"+task+"' draggable='true' ondragstart='drag(event)'>" + task + "</div>";
+        workTaskEl.innerHTML = "<div id='"+task+"'>" + task + "</div>";
         workTaskListEl.appendChild(workTaskEl);
         }
+
+        
+    
     }
     
     function createNewTask(event) {
@@ -21,14 +26,21 @@ function renderWorkTaskList() {
         
         const workTaskList = JSON.parse(window.localStorage.getItem("workTaskList")) || [];
          workTaskList.push(workTask)
-        window.localStorage.setItem("workTaskList", JSON.stringify(workTaskList)); 
-        renderWorkTaskList();
-    
+        window.localStorage.setItem("workTaskList", JSON.stringify(workTaskList));
+        
+        //Lager en ny div for tasken som ble sendt inn
+        var newTaskDiv = document.createElement("div");
+        newTaskDiv.innerHTML = "<h3>Task: " + task + "</h3> <br> <b>Workers:</b>";
+        newTaskDiv.id = task;
+        newTaskDiv.className = "gridElement";
+        newTaskDiv.setAttribute("ondrop", "drop(event)");
+        newTaskDiv.setAttribute("ondragover", "allowDrop(event)");
+        document.getElementsByClassName("taskGridContainer")[0].appendChild(newTaskDiv);
+        
+        
         event.target.reset();
         renderWorkTaskList();
-    
         getSelectOptions();
-        
         }
             
             function renderTeamMemberList(){

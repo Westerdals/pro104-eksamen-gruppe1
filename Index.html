@@ -10,19 +10,8 @@
         <h1>Webside</h1>
     </header>
     <div class="mainContainer">
+        
         <div class="gridContainer">
-            <div class="gridElement" ondrop="drop(event)" ondragover="allowDrop(event)" >
-                <h3>Kategori1</h3>
-                <div class="members">Members</div>
-            </div>
-            <div class="gridElement" ondrop="drop(event)" ondragover="allowDrop(event)">
-                <h3>Kategori2</h3>
-                <div class="members">Members</div>
-            </div>
-            <div class="gridElement" ondrop="drop(event)" ondragover="allowDrop(event)">
-                <h3>Kategori3</h3>
-                <div class="members">Members</div>
-            </div>
             <div class="sideBar">
                 <div class="sideBarElement">
                     <p>Her kan du opprette en arbeidsoppgave</p>
@@ -39,7 +28,7 @@
     
                     <h4>Arbeidsoppgaver:</h4>
     
-                    <div id ="workTaskList"></div>
+                    <div id ="workTaskList" class="list"></div>
                 </div>
                 <div class="sideBarElement">
                     <p>Her kan du opprette et teammedlem</p>
@@ -55,9 +44,10 @@
     
     
                     <h4>Teammedlem:</h4>
-                    <div id ="teamMemberList"></div>
+                    <div id ="teamMemberList" class="list"></div>
                 </div>
             </div>
+            <div class="taskGridContainer"></div>
         </div>
         
         <!--<div id="teamMemberList"></div>
