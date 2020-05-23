@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    letter-spacing: 1;
+    color: teal;
+    text-align: center;
+    margin: auto;
+}
+header {
+    padding: 30px;
+    margin: 10px;
+}
+.mainContainer{
+    min-width: 1200px;
+    margin: auto;
+}
+.gridElement{
+    width: 300px;
+    min-height: 200px;
+    max-height: 200px;
+    border: 1px solid black;
+    overflow: auto;
+}
+.gridContainer {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding: 10px;
+    border: 1px solid black;
+    max-height: none;
+    overflow: auto;
+}
+.taskGridContainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: none;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    grid-auto-rows: auto;
+    padding: 10px;
+    border: 1px solid black;
+    overflow: auto;
+    max-height: 800px;
+}
+.sideBar{
+    width: 300px;
+    border: 1px solid black;
+}
+.sideBarElement{
+    margin: 50px;
+    padding: 10px;
+    border: 1px solid black;
+}
+.list {
+    max-height: 100px;
+    overflow: auto;
+}
