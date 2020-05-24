@@ -151,3 +151,10 @@ function createNewTask(event) {
             }
     
             getSelectOptions();
+
+
+            // Denne blir call'a når body'en på html fila blir load'a
+            function onLoadRender() {
+                renderWorkTaskList()
+                renderTeamMemberList()
+            }
