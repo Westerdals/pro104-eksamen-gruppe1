@@ -3,6 +3,7 @@ function allowDrop(e){
 }
 function drag(e){
     e.dataTransfer.setData("text", e.target.id);
+    
 }
 
 function drop(e){
@@ -15,3 +16,6 @@ function drop(e){
     window.localStorage.setItem("assignmentList", JSON.stringify(assignmentList));
     
 }
+const workTaskList = JSON.parse(window.localStorage.getItem("workTaskList")) || [];   
+    const workTaskListEl = document.getElementById("workTaskList");
+    const taskContainer = document.getElementById("taskContainer");

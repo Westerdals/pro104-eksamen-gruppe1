@@ -1,47 +1,62 @@
 const gridContainer = document.getElementsByClassName("gridContainer");
-
+var counter = 0;
+var letters = /^[A-Za-z]+$/;
 function renderWorkTaskList() { 
-
+    counter++;
     const workTaskList = JSON.parse(window.localStorage.getItem("workTaskList")) || [];   
     const workTaskListEl = document.getElementById("workTaskList");
+    const taskContainer = document.getElementById("taskContainer");
     workTaskListEl.innerHTML = "";  
+    taskContainer.innerHTML = "";
     for (const workTask of workTaskList) {
         const workTaskEl = document.createElement("div");
         const {task} = workTask;
         workTaskEl.innerHTML = "<div id='"+task+"'>" + task + "</div>";
         workTaskListEl.appendChild(workTaskEl);
+        
         }
 
-        
-    
-    }
-    
-    function createNewTask(event) {
-        event.preventDefault();
-    
-        const task = document.querySelector("[name='task']").value;
-       
-        const workTask = {task};
-        console.log(workTask);
-        
-        const workTaskList = JSON.parse(window.localStorage.getItem("workTaskList")) || [];
-         workTaskList.push(workTask)
-        window.localStorage.setItem("workTaskList", JSON.stringify(workTaskList));
-        
-        //Lager en ny div for tasken som ble sendt inn
-        var newTaskDiv = document.createElement("div");
+    //Lager en ny div for tasken som ble sendt inn
+    for (const taskGrid of workTaskList){
+        const newTaskDiv = document.createElement("div");
+        const {task} = taskGrid;
         newTaskDiv.innerHTML = "<h3>Task: " + task + "</h3> <br> <b>Workers:</b>";
         newTaskDiv.id = task;
         newTaskDiv.className = "gridElement";
         newTaskDiv.setAttribute("ondrop", "drop(event)");
         newTaskDiv.setAttribute("ondragover", "allowDrop(event)");
         document.getElementsByClassName("taskGridContainer")[0].appendChild(newTaskDiv);
-        
-        
-        event.target.reset();
-        renderWorkTaskList();
-        getSelectOptions();
+
+        //Sletter ekstra diver som blir laget
+        if(taskContainer.childElementCount > workTaskList.length){
+            for ( var i = 0; taskContainer.childElementCount - counter; i++){
+                taskContainer.removeChild(taskContainer.lastChild);
+            }
         }
+    }
+}
+    
+function createNewTask(event) {
+        event.preventDefault();
+        
+        const task = document.querySelector("[name='task']").value;
+        const workTask = {task};
+        console.log(workTask);
+        
+        if(task.match(letters)){
+            const workTaskList = JSON.parse(window.localStorage.getItem("workTaskList")) || [];
+            workTaskList.push(workTask)
+            window.localStorage.setItem("workTaskList", JSON.stringify(workTaskList));
+            event.target.reset();
+            renderWorkTaskList();
+            
+        }
+        else{
+            alert("Venligst skriv noe inn på feltet")
+            event.target.reset();
+        }
+        
+}
             
             function renderTeamMemberList(){
         const teamMemberList = JSON.parse(window.localStorage.getItem("teamMemberList")) || [];
@@ -50,6 +65,7 @@ function renderWorkTaskList() {
         for (const workTeamMember of teamMemberList) {
             const workTeamMemberEl = document.createElement("div");
             const { teamMember } = workTeamMember;
+        //legger til en div med eventer som gjør det mulig å dragge og droppe
         workTeamMemberEl.innerHTML = "<div id='"+teamMember+"' draggable='true' ondragstart='drag(event)'>"+ teamMember +"</div>";
         teamMemberListEl.appendChild(workTeamMemberEl);
         }
@@ -59,19 +75,20 @@ function renderWorkTaskList() {
         event.preventDefault();
         
         const teamMember = document.querySelector("[name='teamMember']").value;
-        
-         const workTeamMember = {teamMember};
+        const workTeamMember = {teamMember};
        
-       const teamMemberList = JSON.parse(window.localStorage.getItem("teamMemberList")) || [];
-       teamMemberList.push(workTeamMember);
-    
-       window.localStorage.setItem("teamMemberList", JSON.stringify(teamMemberList));
-       renderTeamMemberList();
-    
-       event.target.reset();
-        renderTeamMemberList();
-        getSelectOptions();
-    
+        if(teamMember.match(letters)){
+            const teamMemberList = JSON.parse(window.localStorage.getItem("teamMemberList")) || [];
+            teamMemberList.push(workTeamMember);
+            window.localStorage.setItem("teamMemberList", JSON.stringify(teamMemberList));
+            event.target.reset();
+            renderTeamMemberList();
+            getSelectOptions();
+        }
+        else{
+            alert("Venligst skriv noe inn på feltet")
+            event.target.reset();
+        }
     }
     
     function getAssignmentTask(event) {
