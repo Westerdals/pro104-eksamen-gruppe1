@@ -11,7 +11,7 @@ function renderWorkTaskList() {
     for (const workTask of workTaskList) {
         const workTaskEl = document.createElement("div");
         const {task} = workTask;
-        workTaskEl.innerHTML = "<div id='"+task+"'>" + task + "</div>";
+        workTaskEl.innerHTML = "<div>" + task + "</div>";
         workTaskListEl.appendChild(workTaskEl);
         
         }
@@ -99,11 +99,11 @@ function createNewTask(event) {
     
             function submitAssignmentTask(event) {
               event.preventDefault();
-    
+                var option = document.getElementsByTagName("option");
                 let taskValue = document.querySelector("#valueTask").value;
                 let memberValue = document.querySelector("#valueTeamMember").value;
                 var task = document.getElementById(taskValue);
-    
+                
                 let newAssignment = {
                     "task": taskValue,
                     "teamMember": memberValue
@@ -115,10 +115,8 @@ function createNewTask(event) {
     
     
                 let assignmentContainer = document.getElementById("assignmentList");
-                taskValue.innerHTML += `<div> ${taskValue} ${memberValue} </div> `;
-                
-                
-               
+                task.innerHTML += `<div>${memberValue}</div> `;
+               event.target.reset();
             }
             
         

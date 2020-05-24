@@ -58,3 +58,6 @@ header {
     max-height: 100px;
     overflow: auto;
 }
+select{
+    size: 5;
+}
