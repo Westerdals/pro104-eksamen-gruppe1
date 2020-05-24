@@ -115,7 +115,7 @@ function createNewTask(event) {
     
     
                 let assignmentContainer = document.getElementById("assignmentList");
-                assignmentContainer.innerHTML += `<div> ${taskValue} ${memberValue} </div> `;
+                taskValue.innerHTML += `<div> ${taskValue} ${memberValue} </div> `;
                 
                 
                
