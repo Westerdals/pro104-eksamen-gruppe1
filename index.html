@@ -6,14 +6,16 @@
     </head>
     <body onload="renderProjectList()">
         <h1>Add a new project here!</h1>
-        <form onsubmit="createNewProject(event)">
+        <form onsubmit="createNewProject(event)" id="form">
             <div>
                 <label>Project Name:
                     <div><input name="projectName" placeholder="Name the project.."/></div>
                 </label>
             </div>
-            <div>
-                <input type="submit"/>
+            <div> 
+                <button id= "btn"> 
+            Send 
+        </button>
             </div>
         </form>
         <h2>Ongoing Projects</h2>
