@@ -87,21 +87,20 @@ header {
 }
 
 select {
- color:aliceblue;
-    background-color: teal;
+   color: teal;
+    background-color: aliceblue;
     padding: 1%;
     margin: 2%;
     appearance: none;
     -webkit-appearance: none;
     border-radius: 0;
+    border: 1px teal solid;
     }
 select p {
     margin: 1%;
 }
 
-select:focus {
-    background-color: teal;
-}
+
 
     
 
