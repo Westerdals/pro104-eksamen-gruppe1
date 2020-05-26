@@ -106,7 +106,6 @@ function createNewTask(event) {
     
             function submitAssignmentTask(event) {
                 event.preventDefault();
-                nameCounter++;
                 const name = document.querySelector("#valueTask").value;
                 const task = document.querySelector("#valueTeamMember").value;
                 const assignedTask = {name, task};
@@ -131,13 +130,14 @@ function createNewTask(event) {
                 assignedTaskListEl.appendChild(assignedTaskEl);
 
                 //sletter ekstra diver som blir laget
-                if (assignedTaskListEl.childElementCount > teamMemberList.length){
+                if (assignedTaskListEl.childElementCount > nameCounter){
+                    nameCounter++;
                     for (var i = 0; assignedTaskListEl.childElementCount - nameCounter; i++){
-                        assignedTaskListEl.removeChild(assignedTaskListEl.firstChild);
+                        assignedTaskListEl.removeChild(assignedTaskListEl.lastChild);
                     }    
                 }
             }
-            
+            console.log(nameCounter);
         }
 
             // Denne blir call'a når body'en på html fila blir load'a
