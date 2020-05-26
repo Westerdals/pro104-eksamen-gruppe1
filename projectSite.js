@@ -10,10 +10,10 @@ function renderWorkTaskList() {
     workTaskListEl.innerHTML = "";  
     taskContainer.innerHTML = "";
     for (const workTask of workTaskList) {
-        const workTaskEl = document.createElement("div");
+        //const workTaskEl = document.createElement("div");
         const taskDrop = document.createElement("option");
-        workTaskEl.innerHTML = "<div>" + workTask.task + "</div>";
-        workTaskListEl.appendChild(workTaskEl);
+        //workTaskEl.innerHTML = "<div>" + workTask.task + "</div>";
+        //workTaskListEl.appendChild(workTaskEl);
         taskDrop.innerHTML = `<option> ${workTask.task}</option>`
         taskSelect.appendChild(taskDrop);
         };
