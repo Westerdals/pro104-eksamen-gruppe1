@@ -25,7 +25,7 @@ function renderWorkTaskList() {
         const selectDrop = document.createElement("div");
         var taskGridId = taskGrid.task+"Div"+divCounter;
 
-        newTaskDiv.innerHTML = `<h3>Task: ${taskGrid.task} </h3> <b>Workers</b> <div id="${taskGrid.task}" class="dragDiv" ondrop="drop(event)" ondragover="allowDrop(event)"> Drag members here </div>`;
+        newTaskDiv.innerHTML = `<h3> ${taskGrid.task} </h3>  <div id="${taskGrid.task}" class="dragDiv" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>`;
         newTaskDiv.className = "gridElement";
         newTaskDiv.id = taskGridId;
 

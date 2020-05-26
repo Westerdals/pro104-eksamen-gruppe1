@@ -8,47 +8,47 @@
 <!-- Her caller jeg funskjonen ved page load -->
 <body onload="onLoadRender()">
     <header>
-        <h1>Webside</h1>
+        <span id="headerTitle" contenteditable="true">Ditt prosjekt</span>
     </header>
     <div class="mainContainer">
         
         <div class="gridContainer">
             <div class="sideBar">
                 <div class="sideBarElement">
-                    <p>Her kan du opprette en arbeidsoppgave</p>
-                    <form onsubmit="createNewTask(event)">
                     
-                    <label>Arbeidsoppgave
-                        <input name="task" placeholder="Add a task" />
+                    <form onsubmit="createNewTask(event)">
+                        <p class="sidebarHead">Arbeidsoppgaver</p>
+                    <label>
+                        <input name="task" placeholder="Legg til oppgave" />
                     </label>
                         
-                    <input type="submit"/>
+                    <input type="submit" value="✓"/>
                         
                         
                     </form>
     
-                    <!--<h4>Arbeidsoppgaver:</h4>-->
+                    
     
                     <div id ="workTaskList" class="list"></div>
                 </div>
                 <div class="sideBarElement">
-                    <p>Her kan du opprette et teammedlem</p>
-                    <form onsubmit="createNewTeamMember(event)">
                     
-                    <label>Teammedlemmer
-                        <input name="teamMember" placeholder="Add a name" />
+                    <form onsubmit="createNewTeamMember(event)">
+           <p class="sideBarHead">Teammedlemmer</p> 
+                    <label>
+                        <input name="teamMember" placeholder="Legg til medlem" />
                     </label>
                         
-                    <input type="submit"/>
+                    <input type="submit" value="✓"/>
                         
                     </form>
     
     
-                    <h4>Teammedlem:</h4>
+                    
                     <div id ="teamMemberList" class="list"></div>
                 </div>
                 
-                <div class = "sideBarElement">
+                <div id="assignTask" class = "sideBarElement">
                     <p>Klikk for å tildele en arbeidsoppgave til et teammedlem</p>
 
                     <form onsubmit="submitAssignmentTask(event)">
