@@ -1,7 +1,7 @@
 const gridContainer = document.getElementsByClassName("gridContainer");
 var divCounter = 0;
 var nameCounter = 0;
-var letters = /^[A-Za-z]+$/;
+var letters = /^[A-Z a-z]+$/;
 function renderWorkTaskList() { 
     const workTaskList = JSON.parse(window.localStorage.getItem("workTaskList")) || [];   
     const workTaskListEl = document.getElementById("workTaskList");
