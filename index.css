@@ -86,7 +86,7 @@ select option{
 .sideBar{
     width: 100%;
     
-    overflow: auto;
+    
 
 }
 .sideBarElement{
@@ -142,3 +142,31 @@ p {
     position: absolute;
     right: 10px;
 }
+@media only screen and (max-width: 1020px){
+    p {
+        font-size: 100%;
+    }
+
+@media only screen and (max-width: 750px){
+    .taskGridContainer {
+        grid-template-columns: 48% 48%;
+    }
+    .dragDiv {
+        min-height: 70px;
+    }
+    .gridContainer {
+        grid-template-columns: 30% 70%;
+    }
+    
+    p {
+        font-size: 80%;
+    }
+        
+    }
+    @media only screen and (max-width: 550px){
+    .taskGridContainer {
+        grid-template-columns: 98%;
+        }
+        .gridContainer {
+            grid-template-columns: 35% 65%;
+        }
