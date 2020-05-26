@@ -91,9 +91,9 @@ select option{
 }
 .sideBarElement{
     margin: 1%;
-    padding: 10px;
+    padding: 1%;
     
-    overflow: auto;
+    
 }
 .list {
     
@@ -136,7 +136,7 @@ h3 {
 }
 p {
     font-weight: 200;
-    font-size: 3vmin;
+    font-size: 140%;
 }
 #about {
     position: absolute;
