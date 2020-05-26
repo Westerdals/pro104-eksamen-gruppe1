@@ -18,7 +18,39 @@ header {
 #headerTitle{
     font-size: 6vmin;
     color: #126872;
+    position: relative;
+    
+    
 }
+#aboutUs {
+    display:block;
+    position: relative;
+    max-width: 400px;
+    z-index: 2;
+    margin-right: 2px;
+    font-size: 80%;
+    background-color: white; 
+    visibility: hidden;
+    float: left;
+}
+
+.about {
+    margin-right: 2%;
+    margin-left: 10%;
+    position: fixed;
+    display: inline-block;
+    z-index: 2;
+    
+}
+
+.about:hover {
+      cursor: crosshair;
+}
+.about:hover #aboutus{
+    visibility: visible;
+}
+
+
 .mainContainer{
     max-width: 1200px;
     margin: auto;
@@ -65,6 +97,10 @@ select {
     }
 select p {
     margin: 1%;
+}
+
+select:focus {
+    background-color: teal;
 }
 
     
