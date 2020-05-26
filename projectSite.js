@@ -9,6 +9,7 @@ function renderWorkTaskList() {
     const taskSelect = document.getElementById("valueTask");
     workTaskListEl.innerHTML = "";  
     taskContainer.innerHTML = "";
+    //legger inn på taskDropdownList
     for (const workTask of workTaskList) {
         //const workTaskEl = document.createElement("div");
         const taskDrop = document.createElement("option");
@@ -21,10 +22,29 @@ function renderWorkTaskList() {
     //Lager en ny div for tasken som ble sendt inn
     for (const taskGrid of workTaskList){
         const newTaskDiv = document.createElement("div");
-        const assignedMembers = document.createElement("div");
+        const selectDrop = document.createElement("div");
+        var taskGridId = taskGrid.task+"Div"+divCounter;
+
         newTaskDiv.innerHTML = `<h3>Task: ${taskGrid.task} </h3> <b>Workers</b> <div id="${taskGrid.task}" class="dragDiv" ondrop="drop(event)" ondragover="allowDrop(event)"> Drag members here </div>`;
         newTaskDiv.className = "gridElement";
+        newTaskDiv.id = taskGridId;
+
+        selectDrop.className = "statusSelect";
+        selectDrop.name = "status";
+        selectDrop.innerHTML = `
+                <select>
+                    <option id="endreStatus" class="status">Endre status</option>
+                    <option id="ikkeStartet" class="status">Ikke startet</option>
+                    <option id="underArbeid" class="status">Under arbeid</option>
+                    <option id="ferdig" class="status">Ferdig</option>
+                </select>
+                `
+
+        
         document.getElementsByClassName("taskGridContainer")[0].appendChild(newTaskDiv);
+        document.getElementById(taskGridId).appendChild(selectDrop);
+        
+
         
         
         
@@ -122,7 +142,7 @@ function createNewTask(event) {
             const assignedTaskList = JSON.parse(window.localStorage.getItem("assignedTaskList")) || [];
             const teamMemberList = JSON.parse(window.localStorage.getItem("teamMemberList"));
 
-
+            
             for(const assignedTask of assignedTaskList){
                 const assignedTaskListEl = document.getElementById(assignedTask.name);
                 const assignedTaskEl = document.createElement("div");
